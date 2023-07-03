@@ -1,15 +1,7 @@
-import { TodoList } from "@/components/TodoList";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import TodoApp from "@/components/TodoApp";
 
-const queryClient = new QueryClient();
-const index = () => {
-  return (
-    <div>
-      <QueryClientProvider client={queryClient}>
-        <TodoList />
-      </QueryClientProvider>
-    </div>
-  );
+const Index = () => {
+  return <TodoApp />;
 };
 
-export default index;
+export default Index;
