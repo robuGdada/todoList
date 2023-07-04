@@ -21,7 +21,7 @@ const TodoInfo = ({ todo }: TodoInfoProps) => {
   const UnCheckMutation = useUnCheckTodo();
 
   const handleOnChange = () => {
-    if (todo.completed === 1) {
+    if (todo.completed !== 1) {
       checkMutation.mutate({ id: String(todo.id) });
     } else {
       UnCheckMutation.mutate({ id: String(todo.id) });
@@ -37,6 +37,7 @@ const TodoInfo = ({ todo }: TodoInfoProps) => {
               className="checkbox"
               type="checkbox"
               value={todo.title}
+              checked={!!todo.completed}
               onChange={handleOnChange}
             />
             <h3 className="todo-title">{todo.title}</h3>
