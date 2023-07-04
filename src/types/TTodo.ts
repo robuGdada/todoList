@@ -1,4 +1,5 @@
 export interface TTodo {
+  completed: number;
   id?: number;
   title: string;
   description: string;
