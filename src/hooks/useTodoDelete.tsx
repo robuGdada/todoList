@@ -6,7 +6,7 @@ import { useRouter } from "next/router";
 interface IDeleteTodo {
   id: string;
 }
-export const DeleteTodo = async (deleteTodo: IDeleteTodo) => {
+export const deleteTodo = async (deleteTodo: IDeleteTodo) => {
   const response = await API.delete(`/todos/${deleteTodo.id}`);
   return response.data;
 };
@@ -15,7 +15,7 @@ const useTodoDelete = () => {
   const queryClient = useQueryClient();
   const { back } = useRouter();
   return useMutation({
-    mutationFn: DeleteTodo,
+    mutationFn: deleteTodo,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: getTodoKeys.all });
     },

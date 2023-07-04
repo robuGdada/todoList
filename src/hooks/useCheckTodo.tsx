@@ -5,7 +5,7 @@ import { getTodoKeys } from "./useTodos";
 interface ICheckTodo {
   id: string;
 }
-export const CheckTodo = async (checkTodo: ICheckTodo) => {
+export const checkTodo = async (checkTodo: ICheckTodo) => {
   const response = await API.put(`/todos/check/${checkTodo.id}`);
   return response.data;
 };
@@ -13,7 +13,7 @@ export const CheckTodo = async (checkTodo: ICheckTodo) => {
 const useCheckTodo = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: CheckTodo,
+    mutationFn: checkTodo,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: getTodoKeys.all });
     },
