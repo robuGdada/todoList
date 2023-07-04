@@ -4,7 +4,7 @@ import { getTodoKeys } from "./useTodos";
 
 interface ICheckTodo {
   id: string;
-  completed: number;
+  completed?: number;
 }
 export const checkTodo = async (checkTodo: ICheckTodo) => {
   const response = await API.put(`/todos/check/${checkTodo.id}`);
