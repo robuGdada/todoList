@@ -41,6 +41,8 @@ const TodoInfo = ({ todo }: TodoInfoProps) => {
               onChange={handleOnChange}
             />
             <h3 className="todo-title">{todo.title}</h3>
+            <p className="todo-title">{todo.description}</p>
+            <img className="App" src={todo.imageUrl} alt="random todo image" />
           </div>
           <div className="icon-container">
             <div
@@ -52,6 +54,7 @@ const TodoInfo = ({ todo }: TodoInfoProps) => {
                     id: todo.id,
                     title: todo.title,
                     description: todo.description,
+                    imageUrl: todo.imageUrl,
                   },
                 });
               }}
