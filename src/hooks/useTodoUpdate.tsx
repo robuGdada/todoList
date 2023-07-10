@@ -4,12 +4,13 @@ import { getTodoKeys } from "./useTodos";
 import { useRouter } from "next/router";
 
 interface IUpdateTodo {
+  id?: string;
   title: string;
   description: string;
-  id: string;
+  imageUrl: string;
 }
-export const createTodo = async (newTodo: IUpdateTodo) => {
-  const response = await API.put("/todos", newTodo);
+export const createTodo = async (editTodo: IUpdateTodo) => {
+  const response = await API.put("/todos", editTodo);
   return response.data;
 };
 
