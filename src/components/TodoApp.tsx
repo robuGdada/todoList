@@ -1,7 +1,7 @@
 import TodoInfo from "@/components/TodoInfo";
 import { useTodos } from "@/hooks/useTodos";
 import { useRouter } from "next/router";
-import React, { useState } from "react";
+import React from "react";
 
 const TodoApp = () => {
   const router = useRouter();
