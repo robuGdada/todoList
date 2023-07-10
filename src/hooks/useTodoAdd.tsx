@@ -1,11 +1,11 @@
 import { API } from "@/api/API";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { getTodoKeys } from "./useTodos";
-import { useRouter } from "next/router";
 
 interface NewTodo {
   title: string;
   description: string;
+  imageUrl: string;
 }
 export const createTodo = async (newTodo: NewTodo) => {
   const response = await API.post("/todos", newTodo);
@@ -14,12 +14,10 @@ export const createTodo = async (newTodo: NewTodo) => {
 
 const useTodoAdd = () => {
   const queryClient = useQueryClient();
-  const { back } = useRouter();
   return useMutation({
     mutationFn: createTodo,
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: getTodoKeys.all });
-      back();
     },
   });
 };
