@@ -5,5 +5,6 @@ export interface TTodo {
   description: string;
   userId?: number;
   createdAt?: string;
+  imageUrl?: string;
   updatedAt?: string;
 }
