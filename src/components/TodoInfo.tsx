@@ -22,11 +22,12 @@ const TodoInfo = ({ todo }: TodoInfoProps) => {
 
   const handleOnChange = () => {
     if (todo.completed !== 1) {
-      checkMutation.mutate({ id: String(todo.id) });
+      checkMutation.mutate({ id: Number(todo.id) });
     } else {
-      UnCheckMutation.mutate({ id: String(todo.id) });
+      UnCheckMutation.mutate({ id: Number(todo.id) });
     }
   };
+  console.log(!!todo.completed);
 
   return (
     <>
@@ -36,13 +37,14 @@ const TodoInfo = ({ todo }: TodoInfoProps) => {
             <input
               className="checkbox"
               type="checkbox"
-              value={todo.title}
               checked={!!todo.completed}
               onChange={handleOnChange}
             />
             <h3 className="todo-title">{todo.title}</h3>
-            <p className="todo-title">{todo.description}</p>
-            <img className="App" src={todo.imageUrl} alt="random todo image" />
+            <p className="todo-desc">{todo.description}</p>
+            {todo.imageUrl ? <img className="App" src={todo.imageUrl} /> : ""}
+
+            <p>{todo.category.name}</p>
           </div>
           <div className="icon-container">
             <div
@@ -55,6 +57,7 @@ const TodoInfo = ({ todo }: TodoInfoProps) => {
                     title: todo.title,
                     description: todo.description,
                     imageUrl: todo.imageUrl,
+                    categoryId: todo.category.id,
                   },
                 });
               }}
