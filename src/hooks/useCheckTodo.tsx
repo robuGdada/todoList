@@ -3,7 +3,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { getTodoKeys } from "./useTodos";
 
 interface ICheckTodo {
-  id: string;
+  id: number;
   completed?: number;
 }
 export const checkTodo = async (checkTodo: ICheckTodo) => {
