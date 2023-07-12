@@ -5,7 +5,8 @@ import { getTodoKeys } from "./useTodos";
 interface NewTodo {
   title: string;
   description: string;
-  imageUrl: string;
+  imageUrl?: string;
+  categoryId: number;
 }
 export const createTodo = async (newTodo: NewTodo) => {
   const response = await API.post("/todos", newTodo);
