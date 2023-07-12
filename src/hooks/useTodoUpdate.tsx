@@ -7,10 +7,11 @@ interface IUpdateTodo {
   id?: string;
   title: string;
   description: string;
-  imageUrl: string;
+  categoryId: number;
+  imageUrl?: string;
 }
 export const createTodo = async (editTodo: IUpdateTodo) => {
-  const response = await API.put("/todos", editTodo);
+  const response = await API.put(`/todos`, editTodo);
   return response.data;
 };
 
