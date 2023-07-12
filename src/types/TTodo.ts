@@ -3,8 +3,6 @@ export interface TTodo {
   id?: number;
   title: string;
   description: string;
-  userId?: number;
-  createdAt?: string;
+  category: { id: number; name: string };
   imageUrl?: string;
-  updatedAt?: string;
 }
